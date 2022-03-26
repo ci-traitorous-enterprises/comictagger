@@ -118,7 +118,7 @@ class ZipArchiver:
     def getArchiveFilenameList(self):
         try:
             zf = zipfile.ZipFile(self.path, 'r')
-            namelist = zf.namelist()
+            namelist = [x.encode('cp437').decode('utf-8') for x in zf.namelist()]
             zf.close()
             return namelist
         except Exception as e:
