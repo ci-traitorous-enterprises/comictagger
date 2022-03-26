@@ -39,8 +39,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          export PKG_CONFIG_PATH="/opt/homebrew/opt/icu4c/lib/pkgconfig";
-          export PATH="/opt/homebrew/opt/icu4c/bin:/opt/homebrew/opt/icu4c/sbin:$PATH"
+          export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig";
+          export PATH="/usr/local/opt/icu4c/bin:/usr/local/opt/icu4c/sbin:$PATH"
           python3 -m pip install --no-binary=:pyicu: pyicu
           python3 -m pip install -r requirements_dev.txt
           python3 -m pip install -r requirements.txt
