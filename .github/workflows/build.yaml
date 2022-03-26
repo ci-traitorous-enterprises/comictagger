@@ -27,8 +27,8 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install macos dependencies
         run: |
-          brew install icu4c pkg-config
-          find /opt -name icu4c
+          brew reinstall icu4c pkg-config
+          find / -name icu4c
         shell: bash
         if: runner.os == 'macOS'
       - name: Install linux dependencies
