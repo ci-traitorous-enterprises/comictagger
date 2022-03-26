@@ -29,12 +29,12 @@ jobs:
         run: |
           brew install icu4c
         shell: bash
-        if: runner.os == "macOS"
+        if: runner.os == 'macOS'
       - name: Install linux dependencies
         run: |
           apt-get install pkg-config libicu-dev
         shell: bash
-        if: runner.os == "Linuk"
+        if: runner.os == 'Linux'
 
       - name: Install dependencies
         run: |
