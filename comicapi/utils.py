@@ -25,7 +25,7 @@ from typing import Any, Mapping
 
 import pycountry
 from shutil import which  # noqa: F401
-import json
+import re
 
 logger = logging.getLogger(__name__)
 
