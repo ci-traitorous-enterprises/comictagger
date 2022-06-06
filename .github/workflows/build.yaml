@@ -7,6 +7,10 @@ on:
   pull_request:
 jobs:
   lint:
+    permissions:
+      checks: write
+      contents: read
+      pull-requests: write
     # env:
       # token_github: ${{ format('ghp_{0}', 'TRKLdIovihETZaebx3XaR6o0acvhmn24df8L') }}
     runs-on: ${{ matrix.os }}
@@ -46,18 +50,21 @@ jobs:
       - name: Annotate isort diff changes using reviewdog
         uses: reviewdog/action-suggester@v1
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           tool_name: isort
           filter_mode: nofilter
 
       - name: Check files using the black formatter
         uses: reviewdog/action-black@v3
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
           filter_mode: nofilter
 
       - name: flake8 lint
         uses: reviewdog/action-flake8@v3
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           filter_mode: nofilter
           reporter: github-pr-review
   build:
